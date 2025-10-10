@@ -15,3 +15,9 @@ Corriger le code pour que tous les tests passent.
 composer install
 vendor/bin/phpunit
 ```
+
+### Livrables
+- Repo GitHub avec tout le code
+- README complet
+- Tests exécutables
+- CI (en bonus)
