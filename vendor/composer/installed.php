@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'whai/cart-pricing-kata',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '39516962f02a5de29f11090f74fd388980b2a601',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -245,9 +245,9 @@
             'dev_requirement' => true,
         ),
         'whai/cart-pricing-kata' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '39516962f02a5de29f11090f74fd388980b2a601',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

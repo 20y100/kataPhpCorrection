@@ -25,3 +25,26 @@ vendor/bin/phpunit
 - README résumant les actions menaient
 - Tests exécutables
 - CI (en bonus)
+
+
+# Cart Pricing Kata - Correction Vyncent LUCHEZ.
+
+## Problèmes identifiés
+
+- **Prix en float** dans `Product.php` → devait être en **centimes (int)**.  
+- **Ordre TVA / remise incorrect** dans `Cart::totalCents()`.  
+- **Black Friday mal géré** dans `DiscountService` : mauvais mois, remise appliquée hors période, tous les vendredis pris en compte.  
+- **Validation absente** : ID vide, prix négatif, quantité nulle ou négative étaient acceptés.  
+- **Bug critique** dans `equals()` : utilisation de `=` au lieu de `===`.
+
+---
+
+## Corrections apportées
+
+- Gestion correcte des **prix en centimes**.  
+- Validation stricte des **entrées métier** (ID, prix, quantité).  
+- Application correcte : **remise puis TVA**.  
+- Black Friday correctement calculé : **dernier vendredi de novembre**.  
+- Suppression des remises hors période.  
+- Totaux sécurisés pour être **non négatifs**.  
+- Bug `equals()` corrigé (`=` → `===`).  

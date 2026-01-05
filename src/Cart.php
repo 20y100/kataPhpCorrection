@@ -30,16 +30,21 @@ final class Cart
 
     public function totalCents(DateTimeImmutable $now): int
     {
-        $subtotal = 0.0;
+        $subtotal = 0;
         foreach ($this->lines as &$line) {
             $subtotal += $line['product']->getPriceCents() * $line['qty'];
         }
-        $vat = (int) round($subtotal * 0.20);
-        $withVat = (int) round($subtotal + $vat);
+
+        // Remise
         $discountPercent = $this->discounts->getDiscountPercent($now);
-        $discount = (int) round($withVat * ($discountPercent / 100));
-        $ttc = (int) round($withVat - $discount);
-        return (int) $ttc;
+        $discount = (int) round($subtotal * ($discountPercent / 100));
+        $afterDiscount = $subtotal - $discount;
+
+        // TVA après remise
+        $vat = (int) round($afterDiscount * 0.20);
+        $total = $afterDiscount + $vat;
+
+        return max(0, $total);
     }
 
     public function rawLines(): array
